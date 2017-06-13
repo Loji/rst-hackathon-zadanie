@@ -1,0 +1,61 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="apple-touch-icon" href="apple-touch-icon.png">
+        <!-- Place favicon.ico in the root directory -->
+        <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&amp;subset=latin-ext" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <img src="rstlogo.png" />
+        <h1>Hackathon bezpieczeństwa CRM</h1>
+        <p>
+            Zapraszamy wszystkich chętnych by coś poniszczyć i przy okazji opisać jak zostało to zniszczone...<br />
+            Detale spotkania dostępne są tutaj:
+        </p>
+        <p><strong>U2FsdGVkX180+uKzWXzepzEwBG4JdX09017UyRSK03i4vahpNhWWgbaADorV12TaaAf/vyEBgy7RdFLIEWgcn8kO39jJF4LHe/LfAN2gdiOuBGxgiFiWIzNVLCw06MxZKHP4IfmgnLkN1xkQMroslw==</strong></p>
+
+        <div class="input">
+            <p id="keyCheckInfo"></p>
+            <input type="text" id="key">
+            <button id="keyCheck">Sprawdź klucz</button>
+        </div>
+        <p class="hint">Zajrzyj w źródło strony... a jak nie czujesz się na siłach to do kalendarza ;)</p>
+
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"></script>
+        <script>
+            (function() {
+                // TODO usunąć testowe kody
+                var testowaWiadomosc = 'Działam!';
+                var testowyKlucz = 'qwerty';
+                var testowyZaszyfrowany = CryptoJS.AES.encrypt(testowaWiadomosc, testowyKlucz).toString();
+                console.log(testowaWiadomosc == CryptoJS.AES.decrypt(testowyZaszyfrowany, testowyKlucz).toString(CryptoJS.enc.Utf8));
+
+                var key = 'Nfsojp1nr312pjifn12fibdifiJSANjofn21fSDAKNDjSDAlmk3rml2kmelfmlnjn2f90nsasda';
+
+                function encode(toEncrypt) {
+                    var encryptedBetterThanAES = '';
+                    for (var i = 0; i < toEncrypt.length; i++) {
+                        var transformed = toEncrypt[i].charCodeAt() + key[i].charCodeAt() - i;
+                        encryptedBetterThanAES += String.fromCharCode(transformed);
+                    }
+                    return encryptedBetterThanAES.split().reverse().join();
+                }
+
+                document.getElementById('keyCheck').onclick = function() {
+                    var inputContent = document.getElementById('key').value;
+                    var result = encode(inputContent) == 'ÄÊàà¬ÐÊØ¦ÆÀÁ×É¾Ã¯¿»¢¿«';
+                    document.getElementById('keyCheckInfo').innerHTML = result ? 'Dobrze' : 'Niedobrze';
+                };
+            })();
+        </script>
+
+    </body>
+</html>
