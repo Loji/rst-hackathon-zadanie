@@ -20,7 +20,7 @@
             Zapraszamy wszystkich chętnych by coś poniszczyć i przy okazji opisać jak zostało to zniszczone...<br />
             Detale spotkania dostępne są tutaj:
         </p>
-        <p><strong>U2FsdGVkX180+uKzWXzepzEwBG4JdX09017UyRSK03i4vahpNhWWgbaADorV12TaaAf/vyEBgy7RdFLIEWgcn8kO39jJF4LHe/LfAN2gdiOuBGxgiFiWIzNVLCw06MxZKHP4IfmgnLkN1xkQMroslw==</strong></p>
+        <p><strong>U2FsdGVkX1+258ryzRLHMU6yGs7MebzJX4Icng2Xlgz/iWeN314rKNGZlnZh1K39cFg+l7eTlSG716MampLLMIGMX6T/37GyP4oWglgEbCsAfwRglnK0uCmLk7EjxItaQeg/QyO9buvuVL2crMfuT/O/30pqYLiBW+ZPjQBJ0DB+ZSm8rywYJP+jsMMLgragOzogXZ+nAjtXyfbDmwN16a7rSDIRGnVDaIXr7gwY/MQWxl657gunmTNuC/SjWPMf0TIzlVxEsNA68/tGPD1fRg==</strong></p>
 
         <div class="input">
             <p id="keyCheckInfo"></p>
@@ -38,7 +38,7 @@
                 var testowyZaszyfrowany = CryptoJS.AES.encrypt(testowaWiadomosc, testowyKlucz).toString();
                 console.log(testowaWiadomosc == CryptoJS.AES.decrypt(testowyZaszyfrowany, testowyKlucz).toString(CryptoJS.enc.Utf8));
 
-                var key = 'Nfsojp1nr312pjifn12fibdifiJSANjofn21fSDAKNDjSDAlmk3rml2kmelfmlnjn2f90nsasda';
+                var key = 'Nfsojp1nr312pjifn12fibdifiJSANjofn21fSDAKNDjSDNHdf2jhbqjh2fddsafsdvfwafvawfvwfvfaevewafvwfwvaAlmk3rml2kmelfmlnjn2f90nsasda';
 
                 function encode(toEncrypt) {
                     var encryptedBetterThanAES = '';
@@ -51,7 +51,7 @@
 
                 document.getElementById('keyCheck').onclick = function() {
                     var inputContent = document.getElementById('key').value;
-                    var result = encode(inputContent) == 'ÄÊàà¬ÐÊØ¦ÆÀÁ×É¾Ã¯¿»¢¿«';
+                    var result = encode(inputContent) == '×ÖâßÚÉÀÔÔ©Ó¶È²ÂÀ¯Ä­¾´qxa{ªvw~¦y¬¨q ¢Kl¯H';
                     document.getElementById('keyCheckInfo').innerHTML = result ? 'Dobrze' : 'Niedobrze';
                 };
             })();
